@@ -21,9 +21,9 @@
 			
 				$week_num = str_pad( $w , 2 , '0' , STR_PAD_LEFT );
 				
-				$week_day = strftime( '%A' , strtotime( '2012-W' . $week_num . '-' . $d ) );
+				$week_day = strftime( '%A' , strtotime( '2013-W' . $week_num . '-' . $d ) );
 				
-				$week_date = strftime( '%m/%d/%Y' , strtotime( '2012-W' . $week_num . '-' . $d ) );
+				$week_date = strftime( '%m/%d/%Y' , strtotime( '2013-W' . $week_num . '-' . $d ) );
 				
 				
 				/* set the data for the day of the work week */
@@ -197,70 +197,50 @@
 	/* set up variable for employee */
 	
 	$employee = array (
-		'name' => 'Tracy Jones',
+		'name' => 'Leon Hall',
 		'projects' => array (
 			array (
-				'name' => '330j',
-				'alloc' => .05
+				'name' => '100',
+				'alloc' => .5
 			),
 			array (
-				'name' => '305J',
-				'alloc' => .05
+				'name' => '320k',
+				'alloc' => .4
 			),
 			array (
-				'name' => '323j',
-				'alloc' => .05
-			),
-			array (
-				'name' => '301j',
-				'alloc' => .025
-			),
-			array (
-				'name' => '566k',
-				'alloc' => .02
-			),
-			array (
-				'name' => '661j',
-				'alloc' => .025
-			),
-			array (
-				'name' => '304j',
-				'alloc' => .10
-			),
-			array (
-				'name' => 'Admin',
-				'alloc' => .68
-			),
+				'name' => '363l',
+				'alloc' => .1
+			)
 		)
 	);
 	
 	
 	$pto = array(
 	
-		'01/02/2012' => 'HOLIDAY',
-		'01/16/2012' => 'HOLIDAY',
-		'02/20/2012' => 'HOLIDAY',
-		'03/14/2012' => 'PERSONAL',
-		'05/09/2012' => 'PERSONAL',
-		'05/28/2012' => 'HOLIDAY',
-		'07/04/2012' => 'HOLIDAY',
-		'08/03/2012' => 'HOLIDAY',
-		'11/22/2012' => 'HOLIDAY',
-		'11/23/2012' => 'HOLIDAY',
-		'12/24/2012' => 'HOLIDAY',
-		'12/25/2012' => 'HOLIDAY',
-		'12/31/2012' => 'HOLIDAY',
-		'08/12/2012' => 'VACATION',
-		'08/13/2012' => 'VACATION',
-		'08/14/2012' => 'VACATION',
-		'08/15/2012' => 'VACATION',
-		'08/16/2012' => 'VACATION',
-		'08/17/2012' => 'VACATION',
-		'08/18/2012' => 'VACATION',
-		'08/19/2012' => 'VACATION',
-		'08/20/2012' => 'VACATION',
-		'10/15/2012' => 'SICK',
-		'10/16/2012' => 'SICK',
+		'01/02/2013' => 'HOLIDAY',
+		'01/16/2013' => 'HOLIDAY',
+		'02/20/2013' => 'HOLIDAY',
+		'03/14/2013' => 'PERSONAL',
+		'05/09/2013' => 'PERSONAL',
+		'05/28/2013' => 'HOLIDAY',
+		'07/04/2013' => 'HOLIDAY',
+		'08/03/2013' => 'HOLIDAY',
+		'11/22/2013' => 'HOLIDAY',
+		'11/23/2013' => 'HOLIDAY',
+		'12/24/2013' => 'HOLIDAY',
+		'12/25/2013' => 'HOLIDAY',
+		'12/31/2013' => 'HOLIDAY',
+		'08/12/2013' => 'VACATION',
+		'08/13/2013' => 'VACATION',
+		'08/14/2013' => 'VACATION',
+		'08/15/2013' => 'VACATION',
+		'08/16/2013' => 'VACATION',
+		'08/17/2013' => 'VACATION',
+		'08/18/2013' => 'VACATION',
+		'08/19/2013' => 'VACATION',
+		'08/20/2013' => 'VACATION',
+		'10/15/2013' => 'SICK',
+		'10/16/2013' => 'SICK',
 	
 	);
 	
@@ -276,7 +256,7 @@
 	
 		$week_num = str_pad( $w , 2 , '0' , STR_PAD_LEFT );
 		
-		$week_day = strftime( '%A' , strtotime( '2012-W' . $week_num . '-' . $d ) );
+		$week_day = strftime( '%A' , strtotime( '2013-W' . $week_num . '-' . $d ) );
 		
 		$calendar_week = $calendar_weeks[ $week_num ];
 		
@@ -309,12 +289,7 @@
 				$calendar_details['date'],
 				$employee['projects'][0]['schedule'][ $week_num ][ $calendar_details['date'] ],
 				$employee['projects'][1]['schedule'][ $week_num ][ $calendar_details['date'] ],
-				$employee['projects'][2]['schedule'][ $week_num ][ $calendar_details['date'] ],
-				$employee['projects'][3]['schedule'][ $week_num ][ $calendar_details['date'] ],
-				$employee['projects'][4]['schedule'][ $week_num ][ $calendar_details['date'] ],
-				$employee['projects'][5]['schedule'][ $week_num ][ $calendar_details['date'] ],
-				$employee['projects'][6]['schedule'][ $week_num ][ $calendar_details['date'] ],
-				$employee['projects'][7]['schedule'][ $week_num ][ $calendar_details['date'] ],
+				$employee['projects'][2]['schedule'][ $week_num ][ $calendar_details['date'] ]
 			);
 			
 		}
@@ -326,18 +301,13 @@
 	
 	print_r($data);
 	
-	$output = fopen( 'output.csv' , 'w' );
+	$output = fopen( 'hall, leon.csv' , 'w' );
 	
 	$header = array (
 		'Date',
 		'Project 1: ' . $employee['projects'][0]['name'],
 		'Project 2: ' . $employee['projects'][1]['name'],
-		'Project 3: ' . $employee['projects'][2]['name'],
-		'Project 4: ' . $employee['projects'][3]['name'],
-		'Project 5: ' . $employee['projects'][4]['name'],
-		'Project 6: ' . $employee['projects'][5]['name'],
-		'Project 7: ' . $employee['projects'][6]['name'],
-		'Project 8: ' . $employee['projects'][7]['name'],
+		'Project 3: ' . $employee['projects'][2]['name']
 	);
 	
 	fputcsv( $output , $header );
